@@ -16,3 +16,8 @@ This Vacation App utilizes a Room Framework to allow the user to enter, update, 
 9. Add as many excursions and vacations as you want
 10. *NOTE* You might need to navigate to the Vacation List page to see any changes in your application 
 
+Android Version 
+34(API 34("UpsideDownCake";Android 14.0))
+
+GITLAB Link
+https://gitlab.com/wgu-gitlab-environment/student-repos/blan127/d308-mobile-application-development-android.git
