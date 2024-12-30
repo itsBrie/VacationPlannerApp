@@ -1,28 +1,18 @@
-<strong> **DO NOT DISTRIBUTE OR PUBLICLY POST SOLUTIONS TO THESE LABS. MAKE ALL FORKS OF THIS REPOSITORY WITH SOLUTION CODE PRIVATE. PLEASE REFER TO THE STUDENT CODE OF CONDUCT AND ETHICAL EXPECTATIONS FOR COLLEGE OF INFORMATION TECHNOLOGY STUDENTS FOR SPECIFICS. ** </strong>
+Title: MyVacation App
+Purpose: The purpose of this app is to provide a user the opportunity to add a vacation to their application and any additional excursion details. While also allowing them to see, edit and delete vacation details where they see fit. This app also has the functionality to remind them of any upcoming vacations/excursions they have planned
 
-# WESTERN GOVERNORS UNIVERSITY 
-## D308 – MOBILE APPLICATION DEVELOPMENT (ANDROID)
-Welcome to Mobile Application Development (Android)! This is an opportunity for students to create page layouts with clean navigation, design mobile application infrastructure and user interfaces, develop secure database-backed mobile applications in an object-oriented language, document solutions for application requirements with storyboards and emulators, articulate challenges in the development process, and describe alternatives methods in overcoming mobile application development problems. 
+How to Operate and navigate the application. 
+This Vacation App utilizes a Room Framework to allow the user to enter, update, delete and retrieve information. 
 
-FOR SPECIFIC TASK INSTRUCTIONS AND REQUIREMENTS FOR THIS ASSESSMENT, PLEASE REFER TO THE COURSE PAGE.
-## BASIC INSTRUCTIONS
-For this assessment, you have an opportunity to test your competency as a mobile application developer. Your understanding of mobile application structure and design will help you to develop applications to meet customer requirements. This task will allow you to demonstrate your ability to apply the skills learned in the course.
-
-## SUPPLEMENTAL RESOURCES 
-1.	How to clone a project to Android Studio using Git?
-
-> Ensure that Android Studio and Git are installed on your system.  New Project, Get from VCS button or the File/New/Project from Version Control. This will open a window  with a prompt to clone the project. Save it in a safe location for the directory and press clone. IntelliJ will prompt you for your credentials. Enter in your WGU Credentials and the project will be cloned onto your local machine.
-
-2. How to create a branch and start Development?
-
-- GitLab method
-> Press the '+' button located near your branch name. In the dropdown list, press the 'New branch' button. This will allow you to create a name for your branch. Once the branch has been named, you can select 'Create Branch' to push the branch to your repository.
-
-- Android Studio method
-> In Android Studio, Go to the 'Git' button on the top toolbar. Select the new branch option and create a name for the branch. Make sure checkout branch is selected and press create. You can now add a commit message and push the new branch to the local repo.
-
-## SUPPORT
-If you need additional support, please navigate to the course page and reach out to your course instructor.
-## FUTURE USE
-Take this opportunity to create or add to a simple resume portfolio to highlight and showcase your work for future use in career search, experience, and education!
+1. You first start off at the "Main" page, where you can click on the Enter button to navigate to the "Vacation List" page 
+2. The "Vacation List" page hosts all of the saved vacations you've created in the application. Click on the Add sign to add a Vacation
+3. The will take you to the "Vacation Details" page, this page will allow you to write the Vacation title, hotel name, start date and end date. The page will also host all associated Excursions at the bottom. The menu buttons at the top show you additional functionality. You're able to Save, Delete, set an Alert (trigger whether Vacation is starting or ending) and Share Vacation details. 
+4. Before saving your vacation make sure your inputs have the proper formatting or you'll receive an error and cant save 
+5.  Save your vacation. Doing so will take you back to the Vacation List page (or simply press the back button on your android device to navigate there)
+5. Your saved vacation should pop up on the Vacation List - click on it to navigate to the "Vacation Details" page
+6. Click on the Add button to add an excursion 
+7. This will to take you the "Excursion Details" page, where you can Name your excursion, set the appropriate date, Save, Delete and set an alert (trigger whether Excursion is starting or ending). 
+8. When clicking on the the "Save" Excursion" option in the menu, you'll notice that your saved excursion is saved under the associated Vacation in the Vacation Details page. 
+9. Add as many excursions and vacations as you want
+10. *NOTE* You might need to navigate to the Vacation List page to see any changes in your application 
 
