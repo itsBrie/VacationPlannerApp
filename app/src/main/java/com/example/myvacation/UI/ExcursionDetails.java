@@ -162,6 +162,12 @@ public class ExcursionDetails extends AppCompatActivity {
 //                startActivity(intent);
 //                return true;
         if (item.getItemId() == R.id.saveExcursion) { //SAVING EXCURSION
+
+            if (editName.getText().toString().isEmpty()) { //Excursion Name Validation
+                Toast.makeText(this, "Please enter a Excursion Name", Toast.LENGTH_LONG).show();
+                return true; // Prevent saving if validation fails
+            }
+
             if (!isValidDate(vacationID, editDate.getText().toString())) {
                 Toast.makeText(this, "Invalid date. Please select a date within the vacation period.", Toast.LENGTH_LONG).show();
                 return true; // Prevent saving if date is invalid

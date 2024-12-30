@@ -208,6 +208,16 @@ public class VacationDetails extends AppCompatActivity {
                 return true; // Prevent saving if dates are invalid
             }
 
+            if (editVacationTitle.getText().toString().isEmpty()){ //Vacation Title Validation
+                Toast.makeText(this, "Please enter a Vacation Title", Toast.LENGTH_LONG).show();
+                return true; // Prevent saving if validation fails
+            }
+
+            if (editVacationHotelName.getText().toString().isEmpty()){ //Hotel Name Validation
+                Toast.makeText(this, "Please enter a Hotel Name", Toast.LENGTH_LONG).show();
+                return true; // Prevent saving if validation fails
+            }
+
             Vacation vacation;
             if (vacationID == -1) {
                 if (repository.getAllVacations().size() == 0) vacationID = 1;
