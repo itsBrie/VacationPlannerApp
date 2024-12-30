@@ -186,6 +186,146 @@ public class VacationDetails extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_vacation_list, menu);
         return true;
     }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //SAVING A VACATION
+        if (item.getItemId() == R.id.SaveVacationMenu) {
 
+            String startDateInput = editVacationStartDate.getText().toString();
+            String endDateInput = editVacationEndDate.getText().toString();
+            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy", Locale.US);
+            try {
+                Date startDate = sdf.parse(startDateInput);
+                Date endDate = sdf.parse(endDateInput);
+
+                // Validate that the end date is after the start date
+                if (endDate != null && startDate != null && !endDate.after(startDate)) {
+                    Toast.makeText(this, "End date must be after start date.", Toast.LENGTH_LONG).show();
+                    return true; // Prevent saving if validation fails
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+                Toast.makeText(this, "Invalid date format.", Toast.LENGTH_LONG).show();
+                return true; // Prevent saving if dates are invalid
+            }
+
+            Vacation vacation;
+            if (vacationID == -1) {
+                if (repository.getAllVacations().size() == 0) vacationID = 1;
+                else
+                    vacationID = repository.getAllVacations().get(repository.getAllVacations().size() - 1).getVacationID() + 1;
+                vacation = new Vacation(vacationID,
+                        editVacationTitle.getText().toString(),
+                        editVacationHotelName.getText().toString(),
+                        editVacationStartDate.getText().toString(),
+                        editVacationEndDate.getText().toString());
+                repository.add(vacation);
+                this.finish();
+            } else {
+                vacation = new Vacation(vacationID,
+                        editVacationTitle.getText().toString(),
+                        editVacationHotelName.getText().toString(),
+                        editVacationStartDate.getText().toString(),
+                        editVacationEndDate.getText().toString());
+                repository.update(vacation);
+                this.finish();
+            }
+        }
+        if (item.getItemId() == R.id.DeleteVacationMenu) { //DELETE VACATION - Cant Delete with Excursions
+            for (Vacation vacation : repository.getAllVacations()) {
+                if (vacation.getVacationID() == vacationID) currentVacation = vacation;
+            }
+            numExcursions = 0;
+            for (Excursion excursion : repository.getAllExcursions()) {
+                if (excursion.getVacationID() == vacationID) ++numExcursions;
+            }
+            if (numExcursions == 0) {
+                repository.delete(currentVacation);
+                Toast.makeText(VacationDetails.this, currentVacation.getVacationTitle() + " was deleted", Toast.LENGTH_LONG).show();
+                VacationDetails.this.finish();
+            } else {
+                Toast.makeText(VacationDetails.this, "Cant delete a Vacation with Excursions", Toast.LENGTH_LONG).show();
+            }
+            return true;
+        }
+        if (item.getItemId() == R.id.ShareVacationMenu) { //SHARE VACATION
+            String hotelName = editVacationHotelName.getText().toString();
+            String vacationStartDate = editVacationStartDate.getText().toString();
+            String vacationEndDate = editVacationEndDate.getText().toString();
+
+            List<Excursion> excursions = new ArrayList<>();
+            for (Excursion excursion : repository.getAllExcursions()) {
+                if (excursion.getVacationID() == vacationID) {
+                    excursions.add(excursion);
+                }
+            }
+            StringBuilder excursionDetails = new StringBuilder();
+            if (!excursions.isEmpty()) {
+                excursionDetails.append("\nExcursions:\n");
+                for (Excursion excursion : excursions) {
+                    excursionDetails.append(" - ")
+                            .append(excursion.getExcursionName())
+                            .append(" on ")
+                            .append(excursion.getExcursionDate())
+                            .append("\n");
+                }
+            } else {
+                excursionDetails.append("\nNo excursions planned.");
+            }
+
+            String extraText = "Hotel Name: " + hotelName +
+                    " \n Start Date: " + vacationStartDate +
+                    " \n End Date: " + vacationEndDate + excursionDetails;
+            Intent sentIntent = new Intent();
+            sentIntent.setAction(Intent.ACTION_SEND);
+            sentIntent.setType("text/plain");
+            sentIntent.putExtra(Intent.EXTRA_TITLE, editVacationTitle.getText().toString());
+            sentIntent.putExtra(Intent.EXTRA_TEXT, extraText);
+            Intent shareIntent = Intent.createChooser(sentIntent, null);
+            startActivity(shareIntent);
+            return true;
+        }
+        if (item.getItemId() == R.id.AlertVacationMenu) { //ALERT VACATION
+            String startDateFromScreen=editVacationStartDate.getText().toString();
+            String endDateFromScreen=editVacationEndDate.getText().toString();
+            String myFormat = "MM/dd/yyyy";
+            SimpleDateFormat sdf= new SimpleDateFormat(myFormat, Locale.US);
+            String currentDate = sdf.format(new Date());
+            Date myStartDate=null;
+            Date myEndDate=null;
+            if (currentDate.equals(startDateFromScreen)) {
+                try {
+                    myStartDate = sdf.parse(startDateFromScreen);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                Long trigger = myStartDate.getTime(); //sets up pending intent
+                Intent intent = new Intent(VacationDetails.this, MyReceiver.class);
+                String vacationName = editVacationTitle.getText().toString();
+                String message = vacationName + " Starts Today!";
+                intent.putExtra("start", message);
+                PendingIntent sender = PendingIntent.getBroadcast(VacationDetails.this, ++MainActivity.numAlert, intent, PendingIntent.FLAG_IMMUTABLE);
+                AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                alarmManager.set(AlarmManager.RTC_WAKEUP, trigger, sender);
+
+            } if (currentDate.equals(endDateFromScreen)){
+                try {
+                    myEndDate = sdf.parse(endDateFromScreen);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                Long trigger = myEndDate.getTime(); //sets up pending intent
+                Intent intent = new Intent(VacationDetails.this, MyReceiver.class);
+                String vacationName = editVacationTitle.getText().toString();
+                String message = vacationName + " Ends Today!";
+                intent.putExtra("start", message);
+                PendingIntent sender = PendingIntent.getBroadcast(VacationDetails.this, ++MainActivity.numAlert, intent, PendingIntent.FLAG_IMMUTABLE);
+                AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                alarmManager.set(AlarmManager.RTC_WAKEUP, trigger, sender);
+
+            }
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 }
