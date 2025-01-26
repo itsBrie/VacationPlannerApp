@@ -220,7 +220,7 @@ public class VacationDetails extends AppCompatActivity {
 
             Vacation vacation;
             if (vacationID == -1) {
-                if (repository.getAllVacations().size() == 0) vacationID = 1;
+                if (repository.getAllVacations().isEmpty()) vacationID = 1;
                 else
                     vacationID = repository.getAllVacations().get(repository.getAllVacations().size() - 1).getVacationID() + 1;
                 vacation = new Vacation(vacationID,
