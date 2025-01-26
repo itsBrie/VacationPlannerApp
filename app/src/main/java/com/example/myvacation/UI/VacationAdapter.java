@@ -18,19 +18,26 @@ import java.util.List;
 public class VacationAdapter extends RecyclerView.Adapter<VacationAdapter.VacationViewHolder>{
     private List<Vacation> mVacations;
     private final Context context;
-
     private final LayoutInflater mInflater;
 
     public VacationAdapter(Context context){
         mInflater= LayoutInflater.from(context);
         this.context=context;
+
     }
+
     public class VacationViewHolder extends RecyclerView.ViewHolder {
 
-        private final TextView vacationItemView;
+        private final TextView vacationTitle, hotelName, startDate, endDate;
+        //        private final TextView vacationItemView;
         public VacationViewHolder(@NonNull View itemView) {
             super(itemView);
-            vacationItemView=itemView.findViewById(R.id.textView2); //initializes the vacationItemView and assigns to appropriate id
+            vacationTitle = itemView.findViewById(R.id.vacationTitle);
+            hotelName = itemView.findViewById(R.id.hotelName);
+            startDate = itemView.findViewById(R.id.startDate);
+            endDate = itemView.findViewById(R.id.endDate);
+
+//            vacationItemView=itemView.findViewById(R.id.vacationTitle2); //initializes the vacationItemView and assigns to appropriate id
             itemView.setOnClickListener(new View.OnClickListener() { //when the vacation item on the list is clicked
                 @Override
                 public void onClick(View v) {
@@ -62,11 +69,21 @@ public class VacationAdapter extends RecyclerView.Adapter<VacationAdapter.Vacati
     public void onBindViewHolder(@NonNull VacationAdapter.VacationViewHolder holder, int position) { //What we display on the recyclerview
         if (mVacations!=null){
             Vacation current=mVacations.get(position);
-            String name=current.getVacationTitle();
-            holder.vacationItemView.setText(name);
+//            String name=current.getVacationTitle();
+//            holder.vacationItemView.setText(name);
+
+            holder.vacationTitle.setText(current.getVacationTitle());
+            holder.hotelName.setText(current.getVacationHotelName());
+            holder.startDate.setText(current.getVacationStartDate());
+            holder.endDate.setText(current.getVacationEndDate());
         }
         else {
-            holder.vacationItemView.setText("No vacation name");
+//            holder.vacationItemView.setText("No vacation");
+
+            holder.vacationTitle.setText("No Data");
+            holder.hotelName.setText("No Data");
+            holder.startDate.setText("No Data");
+            holder.endDate.setText("No Data");
         }
     }
 

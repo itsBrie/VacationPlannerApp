@@ -1,5 +1,6 @@
 package com.example.myvacation.UI;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,6 +8,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,6 +27,11 @@ public class VacationList extends AppCompatActivity {
     private VacationAdapter vacationAdapter;
 
     private List<Vacation> filteredVacations = new ArrayList<>();
+
+    String vacationName;
+    String vacationHotelName;
+    String vacationStartDate;
+    String vacationEndDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +64,7 @@ public class VacationList extends AppCompatActivity {
         });
         //Notifying 'onCreate' method that there is a RecyclerView on the page
         RecyclerView recyclerView=findViewById(R.id.vacationlistrecyclerview);
-       vacationAdapter=new VacationAdapter(this); //calling adapter
+        vacationAdapter=new VacationAdapter(this); //calling adapter
         recyclerView.setAdapter(vacationAdapter);// and setting the adapter on the recycler view
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         vacationAdapter.setVacations(allVacations); //using the method created in the adapter to set the vacation to show changing vacations
@@ -72,7 +79,6 @@ public class VacationList extends AppCompatActivity {
                 filteredVacations.add(vacation);
             }
         }
-        Log.i("Vacation List", "filterVacationList: " + filteredVacations.size());
         vacationAdapter.setVacations(filteredVacations);
     }
 
