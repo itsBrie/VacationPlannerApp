@@ -30,6 +30,7 @@
             android:parentActivityName=".UI.VacationList" />
         <activity
             android:name=".UI.VacationList"
+            android:windowSoftInputMode="adjustPan"
             android:exported="false"
             android:label="Vacation List"
             android:parentActivityName=".UI.MainActivity" />

@@ -28,7 +28,7 @@ public class VacationAdapter extends RecyclerView.Adapter<VacationAdapter.Vacati
 
     public class VacationViewHolder extends RecyclerView.ViewHolder {
 
-        private final TextView vacationTitle, hotelName, startDate, endDate;
+        private final TextView vacationTitle,hotelName, startDate, endDate;
         //        private final TextView vacationItemView;
         public VacationViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -37,7 +37,7 @@ public class VacationAdapter extends RecyclerView.Adapter<VacationAdapter.Vacati
             startDate = itemView.findViewById(R.id.startDate);
             endDate = itemView.findViewById(R.id.endDate);
 
-//            vacationItemView=itemView.findViewById(R.id.vacationTitle2); //initializes the vacationItemView and assigns to appropriate id
+//            vacationItemView=itemView.findViewById(R.id.vacationTitle); //initializes the vacationItemView and assigns to appropriate id
             itemView.setOnClickListener(new View.OnClickListener() { //when the vacation item on the list is clicked
                 @Override
                 public void onClick(View v) {

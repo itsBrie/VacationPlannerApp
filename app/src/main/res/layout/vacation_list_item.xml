@@ -1,88 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="horizontal"
-    android:padding="8dp">
+    android:orientation="vertical"
+    android:padding="5dp">
 
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="wrap_content"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto">-->
+    <!--    xmlns:tools="http://schemas.android.com/tools"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="wrap_content"-->
+    <!--    xmlns:app="http://schemas.android.com/apk/res-auto">-->
 
-<!--    <TextView-->
-<!--        android:id="@+id/vacationTitle2"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="TextView"-->
-<!--        tools:layout_editor_absoluteX="148dp"-->
-<!--        tools:layout_editor_absoluteY="86dp"-->
-<!--        android:layout_marginTop="30dp"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:layout_constraintLeft_toLeftOf="parent"
-    tools:ignore="MissingConstraints" />
-
-
-    <TextView
-        android:id="@+id/vacationTitle"
-        android:layout_width="101dp"
-        android:layout_height="31dp"
-        android:layout_marginBottom="8dp"
-        android:layout_weight="2"
-        android:gravity="center"
-        android:padding="8dp"
-        android:text="Title"
-        android:textSize="14sp"
+    <!--    <TextView-->
+    <!--        android:id="@+id/vacationTitle2"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="TextView"-->
+    <!--        tools:layout_editor_absoluteX="148dp"-->
+    <!--        tools:layout_editor_absoluteY="86dp"-->
+    <!--        android:layout_marginTop="30dp"-->
+    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/hotelName"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/hotelName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="8dp"
-        android:layout_weight="2"
-        android:gravity="center"
-        android:padding="8dp"
-        android:text="Hotel Name"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/startDate" />
+        <TextView
+            android:id="@+id/vacationTitle"
+            android:layout_marginLeft="90dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="Vacation Title"
+            android:textSize="10sp"
+            android:ellipsize="end"
+            android:singleLine="true"/>
 
-    <TextView
-        android:id="@+id/startDate"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="8dp"
-        android:layout_weight="2"
-        android:gravity="center"
-        android:padding="8dp"
-        android:text="Start Date"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/endDate" />
 
-    <TextView
-        android:id="@+id/endDate"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_weight="2"
-        android:gravity="center"
-        android:padding="8dp"
-        android:text="End Date"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <TextView
+            android:id="@+id/hotelName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="1dp"
+            android:text="Hotel Name"
+            android:textSize="10sp"
+            android:ellipsize="end"
+            android:singleLine="true"/>
+
+        <TextView
+            android:id="@+id/startDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="1dp"
+            android:text="Start Date"
+            android:textSize="10sp"
+            android:ellipsize="end"
+            android:singleLine="true"/>
+
+        <TextView
+            android:id="@+id/endDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="1dp"
+            android:text="End Date"
+            android:textSize="10sp"
+            android:ellipsize="end"
+            android:singleLine="true"/>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
