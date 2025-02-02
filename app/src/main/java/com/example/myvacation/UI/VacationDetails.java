@@ -223,10 +223,10 @@ public class VacationDetails extends AppCompatActivity {
                 else
                     vacationID = repository.getAllVacations().get(repository.getAllVacations().size() - 1).getVacationID() + 1;
                 vacation = new Vacation(vacationID,
-                        editVacationTitle.getText().toString(),
-                        editVacationHotelName.getText().toString(),
-                        editVacationStartDate.getText().toString(),
-                        editVacationEndDate.getText().toString());
+                        sanitizeInput(editVacationTitle.getText().toString()),
+                        sanitizeInput(editVacationHotelName.getText().toString()),
+                        sanitizeInput(editVacationStartDate.getText().toString()),
+                        sanitizeInput(editVacationEndDate.getText().toString()));
                 repository.add(vacation);
                 this.finish();
             } else {
@@ -336,5 +336,8 @@ public class VacationDetails extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
+    private String sanitizeInput(String input) { //SQL INJECTION PREVENTION
+        if (input == null) return "";
+        return input.replaceAll("[^a-zA-Z0-9 .,!?()-]", "").trim(); // Removes special characters
+    }
 }

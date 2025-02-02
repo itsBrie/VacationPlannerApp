@@ -178,10 +178,12 @@ public class ExcursionDetails extends AppCompatActivity {
                     excursionID = 1;
                 else
                     excursionID = repository.getAllExcursions().get(repository.getAllExcursions().size() - 1).getExcursionID() + 1;
-                excursion = new Excursion(editName.getText().toString(), editDate.getText().toString(), vacationID, excursionID);
+                excursion = new Excursion(
+                        sanitizeInput(editName.getText().toString()), editDate.getText().toString(), vacationID, excursionID);
                 repository.add(excursion);
             } else {
-                excursion = new Excursion(editName.getText().toString(), editDate.getText().toString(), vacationID, excursionID);
+                excursion = new Excursion(
+                        sanitizeInput(editName.getText().toString()), editDate.getText().toString(), vacationID, excursionID);
                 repository.update(excursion);
             }
 
@@ -219,5 +221,9 @@ public class ExcursionDetails extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    private String sanitizeInput(String input) {
+        if (input == null) return "";
+        return input.replaceAll("[^a-zA-Z0-9 .,!?()-]", "").trim(); // Removes special characters
     }
 }
