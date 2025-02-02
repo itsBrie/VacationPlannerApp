@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "44087449328",
+    "project_id": "my-vacation-ab3ab",
+    "storage_bucket": "my-vacation-ab3ab.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44087449328:android:ed38f6c0a34f0e21675435",
+        "android_client_info": {
+          "package_name": "com.example.myvacation"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5RHeDU_f1BbDIkoZ7ZZLx_i2nwPsdmJw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
