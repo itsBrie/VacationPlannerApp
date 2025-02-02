@@ -53,7 +53,6 @@ public class VacationDetails extends AppCompatActivity {
     final Calendar myCalendarStart = Calendar.getInstance();
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

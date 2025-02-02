@@ -7,21 +7,6 @@
     android:orientation="vertical"
     android:padding="5dp">
 
-    <!--    xmlns:tools="http://schemas.android.com/tools"-->
-    <!--    android:layout_width="match_parent"-->
-    <!--    android:layout_height="wrap_content"-->
-    <!--    xmlns:app="http://schemas.android.com/apk/res-auto">-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/vacationTitle2"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="TextView"-->
-    <!--        tools:layout_editor_absoluteX="148dp"-->
-    <!--        tools:layout_editor_absoluteY="86dp"-->
-    <!--        android:layout_marginTop="30dp"-->
-    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,8 +15,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <!--TODO: Add headers for the content below, then get started grabbing the TimeDate stamp for Report Date/>-->
 
 
     </LinearLayout>
@@ -47,7 +30,7 @@
 
         <TextView
             android:id="@+id/vacationTitle"
-            android:layout_marginLeft="80dp"
+            android:layout_marginLeft="60dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -56,7 +39,8 @@
             android:padding="1dp"
             android:singleLine="true"
             android:text="Title"
-            android:textSize="10sp" />
+            android:textSize="10sp"
+            android:background="@drawable/rectangle"/>
 
 
         <TextView
@@ -69,7 +53,8 @@
             android:padding="1dp"
             android:singleLine="true"
             android:text="Hotel Name"
-            android:textSize="10sp" />
+            android:textSize="10sp"
+            android:background="@drawable/rectangle"/>
 
         <TextView
             android:id="@+id/startDate"
@@ -81,7 +66,8 @@
             android:padding="1dp"
             android:singleLine="true"
             android:text="Start Date"
-            android:textSize="10sp" />
+            android:textSize="10sp"
+            android:background="@drawable/rectangle"/>
 
         <TextView
             android:id="@+id/endDate"
@@ -93,19 +79,8 @@
             android:padding="1dp"
             android:singleLine="true"
             android:text="End Date"
-            android:textSize="10sp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:id="@+id/reportDate"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ellipsize="end"
-            android:hint="Report"
-            android:singleLine="true"
-            android:text="Report Date"
             android:textSize="10sp"
-            tools:ignore="Suspicious0dp" />
+            android:background="@drawable/rectangle"/>
 
 
     </LinearLayout>

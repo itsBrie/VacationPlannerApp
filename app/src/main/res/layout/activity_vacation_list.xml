@@ -37,19 +37,79 @@
         android:clickable="true"
         />
 
+    <!-- Headers for RecyclerView -->
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintTop_toBottomOf="@id/searchView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/titleHeader"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Title"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/hotelHeader"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Hotel"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/startDateHeader"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Start Date"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/endDateHeader"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="End Date"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/vacationlistrecyclerview"
         android:layout_width="409dp"
         android:layout_height="627dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="52dp"
-        android:layout_marginTop="200dp"
-        app:layout_constraintTop_toBottomOf="@id/searchView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerLayout"
+        app:layout_constraintVertical_bias="0.519" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
