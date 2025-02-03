@@ -225,8 +225,8 @@ public class VacationDetails extends AppCompatActivity {
                 vacation = new Vacation(vacationID,
                         sanitizeInput(editVacationTitle.getText().toString()),
                         sanitizeInput(editVacationHotelName.getText().toString()),
-                        sanitizeInput(editVacationStartDate.getText().toString()),
-                        sanitizeInput(editVacationEndDate.getText().toString()));
+                        editVacationStartDate.getText().toString(),
+                        editVacationEndDate.getText().toString());
                 repository.add(vacation);
                 this.finish();
             } else {
