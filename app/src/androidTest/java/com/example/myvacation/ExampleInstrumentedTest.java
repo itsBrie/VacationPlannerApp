@@ -55,7 +55,7 @@ public class ExampleInstrumentedTest {
         assertEquals("com.example.myvacation", appContext.getPackageName());
     }
 
-    @Rule
+   @Rule
     public ActivityScenarioRule<VacationList> activityRule =
             new ActivityScenarioRule<>(VacationList.class);
     @Test
@@ -68,7 +68,7 @@ public class ExampleInstrumentedTest {
         onView(withId(androidx.appcompat.R.id.search_src_text)) // Target the internal EditText
                 .perform(typeText("example"));
         Thread.sleep(1000);
-        // Assert RecyclerView displays filtered results
+        // Assert RecyclerView displays filtered results (Pass)
         onView(withId(R.id.vacationlistrecyclerview))
                 .check(matches(hasDescendant(withText("example"))));
     }
@@ -95,7 +95,7 @@ public class ExampleInstrumentedTest {
         onView(withId(vacationHotel)) //
                 .perform(typeText("exampleHotel"));
 
-//Save Vacation - Empty Dates
+//Save Vacation - Empty Dates, Vacation should NOT be able to save, should show Error Message (Pass)
         onView(withContentDescription("More options")).perform(click());
         onView(withText("Save Vacation")).perform(click());
 
